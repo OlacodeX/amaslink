@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ListingView extends Model
+{
+    //
+    public static function createViewLog($listing) {
+        $listingViews= new ListingView();
+        $listingViews->listings_id = $listing->id;
+        $listingViews->titleslug = $listing->title;
+        $listingViews->url = \Request::url();
+        $listingViews->session_id = \Request::getSession()->getId();
+        $listingViews->user_id = (\Auth::check())?\Auth::id():null; //this check will either put the user id or null, no need to use \Auth()->user()->id as we have an inbuild function to get auth id
+        $listingViews->ip = \Request::getClientIp();
+        $listingViews->agent = \Request::header('User-Agent');
+        $listingViews->save();//please note to save it at lease, very important
+    }
+}
