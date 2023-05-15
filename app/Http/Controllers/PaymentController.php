@@ -1,9 +1,12 @@
 <?php
 namespace App\Http\Controllers;
  
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Omnipay\Omnipay;
 use App\Models\Payment;
+use App\Models\Listings;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use PragmaRX\Countries\Package\Countries;
  
 class PaymentController extends Controller
@@ -17,11 +20,11 @@ class PaymentController extends Controller
         $this->middleware('auth');
           $gateway = Omnipay::create('PayPal_Rest');
          // Initialise the gateway
-         $gateway->initialize(array(
-           'clientId' => 'AW94OtdyJ3WLt8VID1fPOgizuLJU32mvhbm6pfU1wkp2ZqqC8Mgx5_dzwlCxuJjwDTL2iIG67UGqm160',
-           'secret'   => 'EAJsiStyeH37SKHqgO3O3AdyFRW1k-B4AIa5MqXVSti70Qj1uThgMZN44mukbmfoOczOZ1wsyjl3Kh_G',
-            'testMode' => false, // Or false when you are ready for live transactions
-         ));
+         $gateway->initialize([
+            'clientId' => config('services.paypal.client'),
+            'secret'   => config('services.paypal.secret'),
+            'testMode' => config('services.paypal.mode'),
+            ]);
     }
  
     public function index()
@@ -35,20 +38,22 @@ class PaymentController extends Controller
         {
            $gateway = Omnipay::create('PayPal_Rest');
            // Initialise the gateway
-           $gateway->initialize(array(
-           'clientId' => 'AW94OtdyJ3WLt8VID1fPOgizuLJU32mvhbm6pfU1wkp2ZqqC8Mgx5_dzwlCxuJjwDTL2iIG67UGqm160',
-           'secret'   => 'EAJsiStyeH37SKHqgO3O3AdyFRW1k-B4AIa5MqXVSti70Qj1uThgMZN44mukbmfoOczOZ1wsyjl3Kh_G',
-            'testMode' => false, // Or false when you are ready for live transactions
-           ));
+           $gateway->initialize(
+           [
+            'clientId' => config('services.paypal.client'),
+            'secret'   => config('services.paypal.secret'),
+            'testMode' => config('services.paypal.mode'),
+            ] // Or false when you are ready for live transactions
+           );
            try {
-            $transaction = $gateway->purchase(array(
+            $transaction = $gateway->purchase([
                 'amount' => $request->input('amount'),
                 'currency' => 'USD',
                 'rn' => '1',
                 //'custom' => $_POST['package'],
                 'returnUrl' => url('success'),
                 'cancelUrl' => url('error'),
-            ));
+            ]);
             $response = $transaction->send();
             $data = $response->getData();
             //echo "Gateway purchase response data == " . print_r($data, true) . "\n";
@@ -82,15 +87,15 @@ class PaymentController extends Controller
                 
             $gateway = Omnipay::create('PayPal_Rest');
             // Initialise the gateway
-            $gateway->initialize(array(
-            'clientId' => 'AW0bOSkBM5Sa7S3s8TmJ1tSc1MmX0qA6zHEXEmiHP5fnn_GCkR1xRPGYHIwxFkkoFtA7feFNp9cIDdXO',
-            'secret'   => 'EE5VqIYQQhgCVji_rAG6Ji-8JiOe3pcMUNcm8j3ritGTb__v00lc50SnFr8r-YL01MusACYzzcJjUsIN',
-             'testMode' => false, // Or false when you are ready for live transactions
-            ));
-             $transaction = $gateway->completePurchase(array(
+            $gateway->initialize([
+                'clientId' => config('services.paypal.client'),
+                'secret'   => config('services.paypal.secret'),
+                'testMode' => config('services.paypal.mode'),
+                ]);
+             $transaction = $gateway->completePurchase([
                   'payer_id'             => $request->input('PayerID'),
                  'transactionReference' => $request->input('paymentId'),
-             ));
+             ]);
                 $response = $transaction->send();
              
                 if ($response->isSuccessful())
@@ -115,11 +120,11 @@ class PaymentController extends Controller
                     $payment_id = $arr_body['id'];
                     $amount = $arr_body['transactions'][0]['amount']['total'];
                     $listings = Listings::where('user_id', auth()->user()->id)->where('status', 'approved')->orderBy('created_at', 'desc')->paginate(5);
-                    $data = array(
+                    $data =[
                         'payment_id' => $payment_id,
                         'listings' => $listings,
                         'amount' => $amount
-                    );
+                    ];
                 
                    return view('user_approved', $data)->with('success', 'Listing Boosted.');//I just set the message for session(success).
    
@@ -144,20 +149,20 @@ class PaymentController extends Controller
         if($request->input('submit'))
         { $gateway = Omnipay::create('PayPal_Rest');
            // Initialise the gateway
-           $gateway->initialize(array(
-           'clientId' => 'AW94OtdyJ3WLt8VID1fPOgizuLJU32mvhbm6pfU1wkp2ZqqC8Mgx5_dzwlCxuJjwDTL2iIG67UGqm160',
-           'secret'   => 'EAJsiStyeH37SKHqgO3O3AdyFRW1k-B4AIa5MqXVSti70Qj1uThgMZN44mukbmfoOczOZ1wsyjl3Kh_G',
-            'testMode' => false, // Or false when you are ready for live transactions
-           ));
+           $gateway->initialize([
+            'clientId' => config('services.paypal.client'),
+            'secret'   => config('services.paypal.secret'),
+            'testMode' => config('services.paypal.mode'),
+            ]);
            try {
-            $transaction = $gateway->purchase(array(
+            $transaction = $gateway->purchase([
                 'amount' => $request->input('amount'),
                 'currency' => 'USD',
                 'rn' => '1',
                 //'custom' => $_POST['package'],
                 'returnUrl' => url('paymentsuccessfree'),
                 'cancelUrl' => url('paymenterrorfree'),
-            ));
+            ]);
             $response = $transaction->send();
             $data = $response->getData();
             //echo "Gateway purchase response data == " . print_r($data, true) . "\n";
@@ -185,11 +190,11 @@ class PaymentController extends Controller
         {
             $gateway = Omnipay::create('PayPal_Rest');
            // Initialise the gateway
-           $gateway->initialize(array(
-           'clientId' => 'AW0bOSkBM5Sa7S3s8TmJ1tSc1MmX0qA6zHEXEmiHP5fnn_GCkR1xRPGYHIwxFkkoFtA7feFNp9cIDdXO',
-           'secret'   => 'EE5VqIYQQhgCVji_rAG6Ji-8JiOe3pcMUNcm8j3ritGTb__v00lc50SnFr8r-YL01MusACYzzcJjUsIN',
-            'testMode' => false, // Or false when you are ready for live transactions
-           ));
+           $gateway->initialize([
+            'clientId' => config('services.paypal.client'),
+            'secret'   => config('services.paypal.secret'),
+            'testMode' => config('services.paypal.mode'),
+            ]);
             $transaction = $gateway->completePurchase(array(
                  'payer_id'             => $request->input('PayerID'),
                 'transactionReference' => $request->input('paymentId'),
@@ -219,12 +224,12 @@ class PaymentController extends Controller
                 $amount = $arr_body['transactions'][0]['amount']['total'];
                // $payment->custom = $_POST['custom'];
                 $countries = Countries::all();
-                $data = array(
+                $data =[
                     'payment_id' => $payment_id,
                     'countries' => $countries,
                     //'custom' => $custom,
                     'amount' => $amount
-                );
+                ];
             
             return view('listings.create_free_boosted',compact('countries'))->with($data);
                
@@ -247,20 +252,27 @@ class PaymentController extends Controller
         {
             $gateway = Omnipay::create('PayPal_Rest');
            // Initialise the gateway
-           $gateway->initialize(array(
-           'clientId' => 'AW94OtdyJ3WLt8VID1fPOgizuLJU32mvhbm6pfU1wkp2ZqqC8Mgx5_dzwlCxuJjwDTL2iIG67UGqm160',
-           'secret'   => 'EAJsiStyeH37SKHqgO3O3AdyFRW1k-B4AIa5MqXVSti70Qj1uThgMZN44mukbmfoOczOZ1wsyjl3Kh_G',
-            'testMode' => false, // Or false when you are ready for live transactions
-           ));
+           $gateway->initialize([
+            'clientId' => config('services.paypal.client'),
+            'secret'   => config('services.paypal.secret'),
+            'testMode' => config('services.paypal.mode'),
+            ]);
+            // dd([
+            //     'clientId' => config('services.paypal.client'),
+            //     'secret'   => config('services.paypal.secret'),
+            //     'testMode' => config('services.paypal.mode'),
+            // ]);
            try {
-            $transaction = $gateway->purchase(array(
-                'amount' => $request->input('amount'),
-                'currency' => 'USD',
-                'rn' => '1',
-                //'custom' => $_POST['package'],
-                'returnUrl' => url('paymentsuccess'),
-                'cancelUrl' => url('paymenterror'),
-            ));
+            $transaction = $gateway->purchase(
+                [
+                    'amount' => $request->input('amount'),
+                    'currency' => 'USD',
+                    'rn' => '1',
+                    //'custom' => $_POST['package'],
+                    'returnUrl' => url('paymentsuccess'),
+                    'cancelUrl' => url('paymenterror'),
+                ]
+            );
             $response = $transaction->send();
             $data = $response->getData();
             //echo "Gateway purchase response data == " . print_r($data, true) . "\n";
@@ -288,15 +300,15 @@ public function payment_success(Request $request)
     {
         $gateway = Omnipay::create('PayPal_Rest');
        // Initialise the gateway
-       $gateway->initialize(array(
-           'clientId' => 'AW94OtdyJ3WLt8VID1fPOgizuLJU32mvhbm6pfU1wkp2ZqqC8Mgx5_dzwlCxuJjwDTL2iIG67UGqm160',
-           'secret'   => 'EAJsiStyeH37SKHqgO3O3AdyFRW1k-B4AIa5MqXVSti70Qj1uThgMZN44mukbmfoOczOZ1wsyjl3Kh_G',
-            'testMode' => false, // Or false when you are ready for live transactions
-       ));
-        $transaction = $gateway->completePurchase(array(
+       $gateway->initialize([
+        'clientId' => config('services.paypal.client'),
+        'secret'   => config('services.paypal.secret'),
+        'testMode' => config('services.paypal.mode'),
+        ]);
+        $transaction = $gateway->completePurchase([
              'payer_id'             => $request->input('PayerID'),
             'transactionReference' => $request->input('paymentId'),
-        ));
+        ]);
         $response = $transaction->send();
      
         if ($response->isSuccessful())
@@ -322,12 +334,12 @@ public function payment_success(Request $request)
             $amount = $arr_body['transactions'][0]['amount']['total'];
            // $payment->custom = $_POST['custom'];
             $countries = Countries::all();
-            $data = array(
+            $data =[
                 'payment_id' => $payment_id,
                 'countries' => $countries,
                 //'custom' => $custom,
                 'amount' => $amount
-            );
+            ];
         
         return view('listings.create',compact('countries'))->with($data);
            
@@ -352,20 +364,20 @@ public function auction(Request $request)
         {
             $gateway = Omnipay::create('PayPal_Rest');
            // Initialise the gateway
-           $gateway->initialize(array(
-           'clientId' => 'AW94OtdyJ3WLt8VID1fPOgizuLJU32mvhbm6pfU1wkp2ZqqC8Mgx5_dzwlCxuJjwDTL2iIG67UGqm160',
-           'secret'   => 'EAJsiStyeH37SKHqgO3O3AdyFRW1k-B4AIa5MqXVSti70Qj1uThgMZN44mukbmfoOczOZ1wsyjl3Kh_G',
-            'testMode' => false, // Or false when you are ready for live transactions
-           ));
+           $gateway->initialize([
+            'clientId' => config('services.paypal.client'),
+            'secret'   => config('services.paypal.secret'),
+            'testMode' => config('services.paypal.mode'),
+            ]);
            try {
-            $transaction = $gateway->purchase(array(
+            $transaction = $gateway->purchase([
                 'amount' => $request->input('amount'),
                 'currency' => 'USD',
                 'rn' => '1',
                 //'custom' => $_POST['package'],
                 'returnUrl' => url('paymentsuccess'),
                 'cancelUrl' => url('paymenterror'),
-            ));
+            ]);
             $response = $transaction->send();
             $data = $response->getData();
             //echo "Gateway purchase response data == " . print_r($data, true) . "\n";
@@ -393,15 +405,15 @@ public function auction(Request $request)
         {
             $gateway = Omnipay::create('PayPal_Rest');
            // Initialise the gateway
-           $gateway->initialize(array(
-           'clientId' => 'AW94OtdyJ3WLt8VID1fPOgizuLJU32mvhbm6pfU1wkp2ZqqC8Mgx5_dzwlCxuJjwDTL2iIG67UGqm160',
-           'secret'   => 'EAJsiStyeH37SKHqgO3O3AdyFRW1k-B4AIa5MqXVSti70Qj1uThgMZN44mukbmfoOczOZ1wsyjl3Kh_G',
-            'testMode' => false, // Or false when you are ready for live transactions
-           ));
-            $transaction = $gateway->completePurchase(array(
+           $gateway->initialize([
+            'clientId' => config('services.paypal.client'),
+            'secret'   => config('services.paypal.secret'),
+            'testMode' => config('services.paypal.mode'),
+            ]);
+            $transaction = $gateway->completePurchase([
                  'payer_id'             => $request->input('PayerID'),
                 'transactionReference' => $request->input('paymentId'),
-            ));
+            ]);
             $response = $transaction->send();
          
             if ($response->isSuccessful())

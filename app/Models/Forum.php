@@ -18,10 +18,10 @@ class Forum extends Model
        return 'slug';
    }
       public function user(){
-          return $this->belongsTo('App\User');
+          return $this->belongsTo('App\Models\User');
       }
       public function comment(){
-          return $this->belongsTo('App\ForumComments');
+          return $this->belongsTo('App\Models\ForumComments');
       }  
   
   

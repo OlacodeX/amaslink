@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Forum;
+use App\Models\Posts;
 use App\Models\Payment;
 use App\Models\Listings;
-use App\Models\Posts;
-use App\Models\User;
 use App\Models\Newsletter;
-use App\Models\Mail\NewsletterEmail;
-use App\Models\Mail\ListingApprovalMail;
+use Illuminate\Http\Request;
+use App\Mail\NewsletterEmail;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ListingApprovalMail;
 
 class SuperadminController extends Controller
 {
@@ -186,5 +186,34 @@ class SuperadminController extends Controller
             Mail::to($users)->send(new NewsletterEmail($data));
             return redirect('superadmin')->with('success', 'Broadcast Sent');
         //}
+    }
+    
+    public function custom_nl(Request $request)
+    {
+        return view('newsletter_custom');
+    }
+     /**
+      * send custom emails
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function send_external(Request $request)
+    {
+        $this->validate($request, [
+            'recipient' => 'required',
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+        $data = [
+            'title' => $request->input('title'),
+            'body' => $request->input('body')
+        ];
+        $emails = explode(",", $request->input('recipient'));
+        // dd($emails);
+        foreach ($emails as $email) {
+            Mail::to($email)->send(new NewsletterEmail($data));
+        }
+        return redirect('superadmin')->with('success', 'Broadcast Sent');
     }
 }

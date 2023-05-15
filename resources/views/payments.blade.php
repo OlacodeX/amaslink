@@ -13,11 +13,19 @@ color: #b20000;
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left:250px;
+}
+@media only screen and (max-width: 768px) {
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        margin-left:20px;
+    }
 }
 </style>
 @section('content')
 @include('inc.navadmin')
-<div class="" id="main" style="margin-left:250px">
+<div class="" id="main">
 <div class="container dashbd">
     <div class="justify-content-center">
         <div class="col-md-12">

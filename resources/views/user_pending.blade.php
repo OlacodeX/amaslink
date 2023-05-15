@@ -82,6 +82,7 @@ color: #b20000;
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left:250px;
 }
 @media only screen and (max-width: 768px) {
       .col-sm-3{
@@ -125,11 +126,16 @@ color: #b20000;
           background: transparent;
           margin-top: 0;
       }
+      #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        margin-left:20px;
+    }
 }
 </style>
 @section('content')
 @include('inc.navd')
-<div class="" id="main" style="margin-left:250px">
+<div class="" id="main">
 
 <div class="w3-container">
     <p>

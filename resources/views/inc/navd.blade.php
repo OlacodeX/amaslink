@@ -413,7 +413,20 @@ img.img-responsive.top{
       padding-right: 20px;
     }
 
+    .w3-sidebar{
+      height: 0%;
+      width: 0;
+      position: fixed;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: #f1f1f1;
+      overflow-x: hidden;
+      transition: 0.5s;
+    
     }
+}
 /***
 .nav.navbar-nav.navbar-right li a .fa-twitter{
     color: rgb(48, 206, 206);
@@ -500,11 +513,11 @@ amaslink@gmail.com</a>
   <ul class="nv" style="border: none;">
       <li><i class="fa fa-dashboard"></i><a href="./dashboard">Dashboard</a></li>
       <li class="group"><i class="fa fa-user"></i><a href="profile/{{Auth::user()->id}}/">View/Edit Profile</a></li>
-      <li><i class="fa fa-rss"></i><a href="./announcements">Announcements ({{App\Announcements::orderBy('created_at', 'desc')->count()}})</a></li>
-      <li class="group"><i class="fa fa-envelope-o"></i><a href="./chat">Messages ({{App\Messages::where('receiver_id', auth()->user()->id)->where('status', 'unread')->count()}})</a></li>
+      <li><i class="fa fa-rss"></i><a href="./announcements">Announcements ({{App\Models\Announcements::orderBy('created_at', 'desc')->count()}})</a></li>
+      <li class="group"><i class="fa fa-envelope-o"></i><a href="./chat">Messages ({{App\Models\Messages::where('receiver_id', auth()->user()->id)->where('status', 'unread')->count()}})</a></li>
       <li><i class="fa fa-sliders"></i><a href="./help">How To Post Ads</a></li>
       <li><i class="fa fa-heart"></i><a href="./favorites">Bookmarks</a></li>
-      <li><i class="fa fa-paw"></i><a href="./all">My Listings({{App\Listings::where('user_id', auth()->user()->id)->where('status', 'approved')->count()}})</a></li>
+      <li><i class="fa fa-paw"></i><a href="./all">My Listings({{App\Models\Listings::where('user_id', auth()->user()->id)->where('status', 'approved')->count()}})</a></li>
       <li class="group"><i class="fa fa-plus-circle"></i><a href="./adintro">POST AD</a></li>
       <li><i class="fa fa-handshake-o"></i><a href="./contact">Contact</a></li>
       <li class="group"><i class="fa fa-institution"></i><a href="./">Homepage</a></li>

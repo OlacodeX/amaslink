@@ -416,7 +416,7 @@
           <ul class="nav navbar-nav navbar-right" style="border: none;">
             <li><a href="../../">Homepage</a></li>
             <li><a href="../../dashboard">Dashboard</a></li>
-            <li><a href="../../chat">Inbox({{App\Messages::where('receiver_id', auth()->user()->id)->where('status', 'unread')->count()}})</a></li>
+            <li><a href="../../chat">Inbox({{App\Models\Messages::where('receiver_id', auth()->user()->id)->where('status', 'unread')->count()}})</a></li>
             <li><a href="../../announcements">Announcements</a></li>
             <li><a href="../../communities">Forum</a></li>
             <li><a href="../../help">How To Post Ads</a></li>

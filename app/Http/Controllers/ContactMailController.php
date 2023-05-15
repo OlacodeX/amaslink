@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Mail\ContactMail;
+use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
 
 class ContactMailController extends Controller

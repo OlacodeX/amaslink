@@ -95,6 +95,8 @@ Route::get('/adminapproved', '\App\Http\Controllers\SuperadminController@adminap
 Route::get('/adminauctions', '\App\Http\Controllers\SuperadminController@adminauctions');
 Route::post('update', '\App\Http\Controllers\SuperadminController@update');
 Route::post('/send_bc', '\App\Http\Controllers\SuperadminController@send_bc');
+Route::post('/send_external_bc', '\App\Http\Controllers\SuperadminController@send_external');
+Route::get('/custom_bc', '\App\Http\Controllers\SuperadminController@custom_nl');
 Route::get('/adminposts', '\App\Http\Controllers\SuperadminController@adminposts');
 Route::get('/admintopics', '\App\Http\Controllers\SuperadminController@topics');
 Route::get('/payments', '\App\Http\Controllers\SuperadminController@payments');
@@ -108,17 +110,17 @@ Route::resource('comments', '\App\Http\Controllers\CommentsController');
 
 
 //PayPal 
-Route::post('payment-status',array('as'=>'payment.status','uses'=>'PaymeentController@paymentInfo'));
-Route::post('payment',array('as'=>'payment','uses'=>'PaymeentController@payment'));
-Route::get('payment-cancel', function () {
-   return 'Payment has been canceled';
-});
+// Route::post('payment-status',array('as'=>'payment.status','uses'=>'PaymentController@paymentInfo'));
+// Route::post('payment',array('as'=>'payment','uses'=>'PaymentController@payment'));
+// Route::get('payment-cancel', function () {
+//    return 'Payment has been canceled';
+// });
 
 
 Route::post('payment', '\App\Http\Controllers\PaymentController@index');
 Route::post('book', '\App\Http\Controllers\PaymentController@book');
 Route::post('charge', '\App\Http\Controllers\PaymentController@charge');
-Route::post('payWithpaypal', '\App\Http\Controllers\PaymeentController@payWithpaypal');
+// Route::post('payWithpaypal', '\App\Http\Controllers\PaymentController@payWithpaypal');
 Route::get('paymentsuccess', '\App\Http\Controllers\PaymentController@payment_success');
 Route::get('paymenterror', '\App\Http\Controllers\PaymentController@payment_error');
 Route::post('auction', '\App\Http\Controllers\PaymentController@auction');

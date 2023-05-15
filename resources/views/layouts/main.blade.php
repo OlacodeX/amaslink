@@ -20,6 +20,12 @@
             input.form-control{
                 color: #b20000;
         }
+        
+        a.btn.btn-primary.pagination{
+            color: #eee; 
+            font-size:10px; 
+            font-weight:bold;
+        }
         body{
                 margin: 0;
                 padding: 0;
@@ -66,7 +72,6 @@ padding-bottom: 5px;
 
             
             .fa{
-                
                 padding: 7px;
             }
             .fa-github{
@@ -473,6 +478,7 @@ document.getElementById("myNav").style.width = "0%";
 function openNavOne() {
   document.getElementById("myNav").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("myNav").style.height = "100%"
 }
 
 function closeNavOne() {

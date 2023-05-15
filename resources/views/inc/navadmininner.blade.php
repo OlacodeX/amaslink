@@ -255,7 +255,20 @@
       padding-right: 20px;
     }
 
+    .w3-sidebar{
+      height: 0%;
+      width: 0;
+      position: fixed;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: #f1f1f1;
+      overflow-x: hidden;
+      transition: 0.5s;
+    
     }
+}
 /***
 .nav.navbar-nav.navbar-right li a .fa-twitter{
     color: rgb(48, 206, 206);
@@ -344,6 +357,7 @@ amaslink@gmail.com</a>
           <li><a href="../../announcements/create">Make Announcement</a></li>
           <li><i class="fa fa-users"></i><a href="../../subscribed_users">Subscribed Users</a></li>
           <li><i class="fa fa-rss"></i><a href="../../newsletter/create">Send Broadcast</a></li>
+          <li><i class="fa fa-rss"></i><a href="../../custom_bc">Send Bulk Email</a></li>
           <li><a href="../../communities/create">Create Forum Topic</a></li>
           <li><a href="../../adminposts">My Posts</a></li>
           <li class="nav-item">

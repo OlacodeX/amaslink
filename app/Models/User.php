@@ -37,26 +37,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Models\Post');
     }
 
 
     public function listings(){
-      return $this->hasMany('App\Listings');
+      return $this->hasMany('App\Models\Listings');
   }
 
     public function announcements(){
-        return $this->hasMany('App\Announcements');
+        return $this->hasMany('App\Models\Announcements');
     }
 
 
     public function bookmarks()
 {
-	return $this->hasMany('App\Favorite');
+	return $this->hasMany(Favorite::class);
 }
 public function likes()
 {
-return $this->hasMany('App\Likes');
+return $this->hasMany(Likes::class);
 }
 
 
@@ -64,7 +64,7 @@ return $this->hasMany('App\Likes');
     public function roles()
     {
         return $this
-            ->belongsToMany('App\Role')
+            ->belongsToMany(Role::class)
             ->withTimestamps();
     }
     public function authorizeRoles($roles)

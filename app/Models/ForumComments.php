@@ -14,11 +14,11 @@ class ForumComments extends Model
       //timestamps
       public $timestamps = true;
      public function topics(){
-        return $this->hasMany('App\Forum');
+        return $this->hasMany('App\Models\Forum');
     } 
     public function likes()
 {
-    return $this->hasMany('App\Likes');
+    return $this->hasMany('App\Models\Likes');
 }
 
     public function commenter()

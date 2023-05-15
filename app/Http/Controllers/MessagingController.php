@@ -9,7 +9,7 @@ use App\Models\MessagesView;
 use App\Models\Listings;
 use App\Models\Posts;
 use App\Models\User;
-use App\Models\Mail\MessageNotificationMail;
+use App\Mail\MessageNotificationMail;
 use Illuminate\Support\Facades\Mail;
 //use App\Models\ForumComments;
 

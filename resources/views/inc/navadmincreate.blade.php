@@ -237,11 +237,11 @@
       margin-top: 110px;
       box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
     }
-        @media only screen and (max-width: 768px) {
-    .sticky {
+@media only screen and (max-width: 768px) {
+  .sticky {
       position: fixed;
       top: 0;
-      width: 105%;
+      width: 10%;
       z-index: 1;
     }
           
@@ -346,7 +346,20 @@
           padding-right: 20px;
         }
     
-        }
+        .w3-sidebar{
+      height: 0%;
+      width: 0;
+      position: fixed;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: #f1f1f1;
+      overflow-x: hidden;
+      transition: 0.5s;
+    
+    }
+  }
     /***
     .nav.navbar-nav.navbar-right li a .fa-twitter{
         color: rgb(48, 206, 206);
@@ -433,17 +446,18 @@
       <ul class="nv" style="border: none;">
           <li><i class="fa fa-dashboard"></i><a href=".././superadmin">Dashboard</a></li>
           <li class="group"><i class="fa fa-user"></i><a href="../profile/{{Auth::user()->id}}/">View/Edit Profile</a></li>
-          <li class="group"><i class="fa fa-users"></i><a href="../users_list">Members List({{App\User::count()}})</a></li>
+          <li class="group"><i class="fa fa-users"></i><a href="../users_list">Members List({{App\Models\User::count()}})</a></li>
           <li><i class="fa fa-rss"></i><a href="../announcements/create">Make Announcement</a></li>
           <li><i class="fa fa-users"></i><a href="../subscribed_users">Subscribed Users</a></li>
           <li><i class="fa fa-rss"></i><a href="../newsletter/create">Send Broadcast</a></li>
+          <li><i class="fa fa-rss"></i><a href="../custom_bc">Send Bulk Email</a></li>
           <li><i class="fa fa-sliders"></i><a href="../communities/create">Create Forum Topic</a></li>
-          <li class="group"><i class="fa fa-envelope-o"></i><a href="../chatadmin" >Messages({{App\Messages::where('receiver_id', auth()->user()->id)->where('status', 'unread')->count()}})</a></li>
-          <li><i class="fa fa-paw"></i><a href="../adminall">My Listings({{App\Listings::where('user_id', auth()->user()->id)->where('status', 'approved')->count()}})</a></li>
+          <li class="group"><i class="fa fa-envelope-o"></i><a href="../chatadmin" >Messages({{App\Models\Messages::where('receiver_id', auth()->user()->id)->where('status', 'unread')->count()}})</a></li>
+          <li><i class="fa fa-paw"></i><a href="../adminall">My Listings({{App\Models\Listings::where('user_id', auth()->user()->id)->where('status', 'approved')->count()}})</a></li>
           <li><i class="fa fa-plus-circle"></i><a href="../blog/create">Create Blog Article</a></li>
-          <li class="group"><i class="fa fa-plus-circle"></i><a href="../adminposts">My Posts({{App\Posts::count()}})</a></li>
-          <li><i class="fa fa-link"></i><a href="../all_listings">All Listings({{App\Listings::count()}})</a></li>
-          <li><i class="fa fa-heart"></i><a href="../admin_pending">Pending Listings({{App\Listings::where('status', 'pending')->count()}})</a></li>
+          <li class="group"><i class="fa fa-plus-circle"></i><a href="../adminposts">My Posts({{App\Models\Posts::count()}})</a></li>
+          <li><i class="fa fa-link"></i><a href="../all_listings">All Listings({{App\Models\Listings::count()}})</a></li>
+          <li><i class="fa fa-heart"></i><a href="../admin_pending">Pending Listings({{App\Models\Listings::where('status', 'pending')->count()}})</a></li>
           <li><i class="fa fa-handshake-o"></i><a href="../payments">Recent Transactions</a></li>
           <li class="group"><i class="fa fa-institution"></i><a href="../">Homepage</a></li>
         </ul>

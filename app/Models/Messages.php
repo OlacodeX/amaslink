@@ -17,9 +17,9 @@ class Messages extends Model
         return 'slug';
     }
       public function post(){
-         return $this->hasMany('App\Posts');
+         return $this->hasMany('App\Models\Posts');
      } 
      public function reply(){
-         return $this->belongsTo('App\MessagesReply');
+         return $this->belongsTo('App\Models\MessagesReply');
      }
 }

@@ -81,12 +81,13 @@ color: #b20000;
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left:250px;
 }
 @media only screen and (max-width: 768px) {
       .col-sm-3{
           background: #ffffff;
           padding: 15px 15px;
-            margin-top: 100px;
+          margin-top: 100px;
       }
       .card-header h5{
           padding-top: 15px;
@@ -124,11 +125,57 @@ color: #b20000;
           background: transparent;
           margin-top: 0;
       }
-}
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        margin-left:20px;
+    }
+      p.pull-right span{
+          font-size: 30px;
+          color: #171919;
+          font-family:'poppins';
+          font-weight: bold;
+      }
+      p.pull-left.t i.fa.fa-list,
+      p.pull-left.a i.fa.fa-check,
+      p.pull-left.e i.fa.fa-exclamation-triangle,
+      p.pull-left.p i.fa.fa-clock-o{
+          font-size: 20px;
+          font-weight: normal;
+          background: transparent;
+          padding: 13px 13px;
+          color: #f1f1f1;
+      }
+      p.pull-left.t{
+          background: #0083c9;
+          padding: 0px 0px;
+          border-radius: 30px;
+          color: #f1f1f1;
+      }
+      p.pull-left.a{
+          background: #73cf42;
+          padding: 0px 0px;
+          border-radius: 30px;
+          color: #f1f1f1;
+      }
+      p.pull-left.e{
+          background: #f04d4e;
+          padding: 0px 0px;
+          border-radius: 30px;
+          color: #f1f1f1;
+      }
+      p.pull-left.p{
+          background: #ff9700;
+          padding: 0px 0px;
+          border-radius: 30px;
+          color: #f1f1f1;
+
+      }
+}   
 </style>
 @section('content')
 @include('inc.navadmin')
-<div class="" id="main" style="margin-left:250px">
+<div class="" id="main">
     <div class="row">
         <div class="col-md-12">
             <div class="card">

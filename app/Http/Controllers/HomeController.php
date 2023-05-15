@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Listings;
 use App\Models\Bids;
 use App\Models\User;
-use App\Models\Mail\BiddingMail;
+use App\Mail\BiddingMail;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller

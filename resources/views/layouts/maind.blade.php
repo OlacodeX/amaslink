@@ -17,6 +17,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
+            
+        a.btn.btn-primary.pagination{
+            color: #eee; 
+            font-size:10px; 
+            font-weight:bold;
+            background: #b20000;
+            border: none;
+            padding: 5px 10px;
+        }
             input.form-control{
                 color: #b20000;
         }
@@ -473,6 +482,7 @@ document.getElementById("myNav").style.width = "0%";
 function openNavOne() {
   document.getElementById("myNav").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("myNav").style.height = "100%"
 }
 
 function closeNavOne() {
@@ -480,7 +490,7 @@ function closeNavOne() {
   document.getElementById("main").style.marginLeft= "0";
 }     
     
-            </script>
+</script>
             
 <script>
 	$(document).ready(function(){
