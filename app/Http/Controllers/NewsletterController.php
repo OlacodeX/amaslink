@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Mail\NewsletterEmail;
+use App\Mail\NewsletterEmail;
 use App\Models\User;
 use App\Models\Newsletter;
 use Illuminate\Support\Facades\Mail;
@@ -101,4 +101,5 @@ class NewsletterController extends Controller
     {
         //
     }
+
 }

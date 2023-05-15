@@ -28,6 +28,6 @@ class NewsletterEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('AMASLINK MONTHLY NEWSLETTER')->markdown('emails.NewsletterMail');
+        return $this->subject($this->data['title'])->markdown('emails.NewsletterMail');
     }
 }

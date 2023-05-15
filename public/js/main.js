@@ -40,7 +40,7 @@ document.getElementById("myNav").style.width = "0%";
             // When the user scrolls down 20px from the top of the document, show the button
            
             var navbar = document.getElementById("navBar");
-                var sticky = navbar.offsetTop;
+            var sticky = navbar.offsetTop;
 
             window.onscroll = function() {scrollFunction()};
             

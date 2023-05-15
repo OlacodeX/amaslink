@@ -449,7 +449,7 @@ color: #b20000;
               <div class="panel-heading">
                 <a href=""><i class="fa fa-user"></i>{!!$comment->commenter_name!!}</a>
                 <?php
-               $user = App\User::where('id', $comment->commenter_id)->first();
+               $user = App\Models\User::where('id', $comment->commenter_id)->first();
                 $from  = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $user->created_at);
                 $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', \Carbon\Carbon::now());
                 $diff_in_months = $to->diffInMonths($from);
@@ -487,11 +487,11 @@ color: #b20000;
                   {{ Form::open(array('action' => 'ForumController@like')) }}  
                   {{Form::hidden('id', $comment->id)}} 
                   <div class="pull-right">
-                    @if (empty(App\User::find(auth()->user()->id)->likes()->where('user_id', '=',  auth()->user()->id)->where('comment_id', '=',  $comment->id)->first()))
+                    @if (empty(App\Models\User::find(auth()->user()->id)->likes()->where('user_id', '=',  auth()->user()->id)->where('comment_id', '=',  $comment->id)->first()))
                          
-                    <span>{{App\Likes::where('comment_id', $comment->id)->count()}}</span><button type="submit" onclick="myFunction(this)" title="Like" class="fa fa-thumbs-o-up"></button>
+                    <span>{{App\Models\Likes::where('comment_id', $comment->id)->count()}}</span><button type="submit" onclick="myFunction(this)" title="Like" class="fa fa-thumbs-o-up"></button>
                   @else
-                  <span>{{App\Likes::where('comment_id', $comment->id)->count()}}</span><button type="submit" onclick="myFunction(this)" title="Unlike" class="pull-right fa fa-thumbs-o-down"></button>
+                  <span>{{App\Models\Likes::where('comment_id', $comment->id)->count()}}</span><button type="submit" onclick="myFunction(this)" title="Unlike" class="pull-right fa fa-thumbs-o-down"></button>
                   @endif
                 </div>
                    {{ Form::close() }}
@@ -555,7 +555,7 @@ color: #b20000;
                 {{Form::submit('MINERAL/CRUDE OIL', ['class' => 'btn btn-default', 'style' => 'text-transform:uppercase;'])}}
                
               
-               ({{App\Listings::where('category', 'MINERAL, CRUDE OIL')->where('status', 'approved')->count()}})
+               ({{App\Models\Listings::where('category', 'MINERAL, CRUDE OIL')->where('status', 'approved')->count()}})
           
            {!! Form::close() !!}
            {!! Form::open(['action' => 'PagesController@category', 'method' => 'GET', 'id' => 'my_form_4']) /** The action should be the block of code in the store function in PostsController

@@ -96,6 +96,7 @@ color: #b20000;
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left:250px;
 }
 @media only screen and (max-width: 768px) {
       .col-sm-3{
@@ -139,11 +140,16 @@ color: #b20000;
           background: transparent;
           margin-top: 0;
       }
+      #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        margin-left:20px;
+    }
 }
 </style>
 @section('content')
 @include('inc.navd')
-<div class="" id="main" style="margin-left:200px">
+<div class="" id="main">
 
 <div class="w3-container">
     <p>
@@ -161,7 +167,7 @@ color: #b20000;
 </p>
 </div>
 @if (count($listings) > 0)
-<table class="table table-stripped table-condensed table-responsive">
+<table class="table table-stripped table-condensed table-responsive" style="width: 80%">
     <tr>
         <th>Title</th>
         <th>Description</th>

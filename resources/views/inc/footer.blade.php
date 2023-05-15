@@ -205,14 +205,7 @@ footer div.overlay {
                 <a href="listings/{{$latest->id}}" title="{{$latest->title}}">
                 <div class="col-sm-4">
                     <div class="container folio">
-                    <img src="{{ URL::to('img/cover_images/listings/'.$latest->image1)}}" alt="listing image" class="img-responsive image">
-                    <div class="overlay">
-                        <p>
-                            <a href="listings/{{$latest->id}}" class="icon" title="{{$latest->title}}">
-                            <i class="fa fa-plus-circle"></i>
-                            </a>
-                        </p>
-                        </div>
+                        <img src="{{ URL::to('img/cover_images/listings/'.$latest->image1)}}" alt="listing image" class="img-responsive image">
                     </div>
                 </div>
                 </a>
@@ -285,7 +278,7 @@ footer div.overlay {
 <div class="text-center foot">
     
         
-    <p class="text-center">&copy 2021 AMASLINK | All rights reserved | Designed by <a href="" style="color:#b2000095; font-weight:bold;">Gowwwide Tech</a> </p>
+    <p class="text-center">&copy {{ \Carbon\Carbon::now()->format('Y') }} AMASLINK | All rights reserved | Designed by <a href="" style="color:#b2000095; font-weight:bold;">Gowwwide Tech</a> </p>
     <a  style="float:left; text-decoration:none;background:#b20000; color:#f1f1f1; border-radius:15px;" class="btn btn-default up" href="#myPage" onclick="topFunction()" id="myBtn">
         <span class="fa fa-arrow-up"></span> 
     </a>

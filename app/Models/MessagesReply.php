@@ -18,6 +18,6 @@ class MessagesReply extends Model
       return 'slug';
   }
     public function messages(){
-        return $this->hasMany('App\Messages');
+        return $this->hasMany('App\Models\Messages');
     } 
 }

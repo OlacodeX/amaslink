@@ -19,9 +19,9 @@ class Likes extends Model
       //timestamps
       public $timestamps = true;
       public function user(){
-          return $this->belongsTo('App\User');
+          return $this->belongsTo('App\Models\User');
       }
   public function likes(){
-      return $this->hasMany('App\ForumComments');
+      return $this->hasMany('App\Models\ForumComments');
   }
 }

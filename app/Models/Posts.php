@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\PostView;
+use App\Models\PostView;
 
-use App\Favorite;
+use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,13 +25,13 @@ class Posts extends Model
 
 
       public function user(){
-          return $this->belongsTo('App\User');
+          return $this->belongsTo('App\Models\User');
       }
 
 
 
       public function message(){
-          return $this->belongsTo('App\Messages');
+          return $this->belongsTo('App\Models\Messages');
       }
 
 

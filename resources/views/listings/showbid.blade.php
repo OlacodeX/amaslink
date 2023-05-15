@@ -328,7 +328,7 @@ img.img-responsive{
                  {{Form::submit('MINERAL/CRUDE OIL', ['class' => 'btn btn-default', 'style' => 'text-transform:uppercase;'])}}
                 
                
-                ({{App\Listings::where('category', 'MINERAL, CRUDE OIL')->where('status', 'approved')->count()}})
+                ({{App\Models\Listings::where('category', 'MINERAL, CRUDE OIL')->where('status', 'approved')->count()}})
            
             {!! Form::close() !!}
             {!! Form::open(['action' => 'PagesController@category', 'method' => 'GET', 'id' => 'my_form_4']) /** The action should be the block of code in the store function in PostsController

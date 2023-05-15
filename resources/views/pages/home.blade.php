@@ -524,7 +524,7 @@
                                 @guest
                                 <button type="submit" onclick="myFunction(this)" class="fa fa-heart-o" title="Bookmark"></button>
                                 @else 
-                                @if(empty(App\Favorite::where('user_id', '=', auth()->user()->id)->where('listing_id', '=',  $boosted_paid->id)->first()))
+                                @if(empty(App\Models\Favorite::where('user_id', '=', auth()->user()->id)->where('listing_id', '=',  $boosted_paid->id)->first()))
                                 
                                 <button type="submit" onclick="myFunction(this)" class="fa fa-heart-o" title="Bookmark"></button>
                                 @else 
@@ -586,7 +586,7 @@
                                 @guest
                                 <button type="submit" onclick="myFunction(this)" class="fa fa-heart-o" title="Bookmark"></button>
                                 @else 
-                                @if(empty(App\Favorite::where('user_id', '=', auth()->user()->id)->where('listing_id', '=',  $boosted_free->id)->first()))
+                                @if(empty(App\Models\Favorite::where('user_id', '=', auth()->user()->id)->where('listing_id', '=',  $boosted_free->id)->first()))
                                 
                                 <button type="submit" onclick="myFunction(this)" class="fa fa-heart-o" title="Bookmark"></button>
                                 @else 

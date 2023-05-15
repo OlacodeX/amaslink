@@ -52,31 +52,28 @@
                     <p class="text-justify"><i class="fa fa-map-marker"></i>{{$favorite->country}} | <span>$</span>{{$favorite->price}}</p>
                     
                 </div>
-                <div class="overlay">
-                    <p>
-                        @if ($favorite->listing_type !== 'paid/auction')
-                        <a href="listings/{{$favorite->listing_id}}" class="icon" title="">
-                        @else
-                        <a href="auctions/{{$favorite->listing_id}}" class="icon" title="">
-                            
-                        @endif
-                        <i class="fa fa-plus-circle"></i>
-                        </a>
-                    </p>
-                    </div>
             </div>
             </div>
         </div>
         </a>
         @endforeach
+        <div class="text-center">
+            <div class="d-flex justify-content-center" style="padding-bottom:10px">
+            
+                @if($favorites->currentPage() > 1)
+                <a href="{{ $favorites->previousPageUrl() }}" class="btn btn-primary pagination">Previous</a>
+                @endif
+                
+                @if($favorites->hasMorePages())
+                <a href="{{ $favorites->nextPageUrl() }}" class="btn btn-primary pagination">Next</a>
+                @endif
+            </div>
+        </div>
         @else
             <p class="text-center">Nothing to display here.</p>
-            @endif  
+    @endif  
     </div>
     
-    <div class="text-center">
-        <a href="" id="loadMoree" class="btn btn-success">load MORE LISTINGS</a>
-    </div>
 </div>
 <div class="row">
     @include('inc.footer')

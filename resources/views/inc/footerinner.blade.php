@@ -1,142 +1,156 @@
-<style>
-    footer{
-       background: #171919;
-       padding-top: 100px;
-       padding-bottom: 100px;
-       color: #f1f1f1;
-    }
-    footer a{
-        color: #f1f1f1;
-        text-decoration: none;
+<style>footer{
+    background: #171919;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    color: #f1f1f1;
+ }
+ footer a{
+     color: #f1f1f1;
+     text-decoration: none;
 
-    }
-    footer .fa{
-        color: #b20000;
-    }
-    footer a:hover{
-        color: #b20000;
-        text-decoration:wavy;
+ }
+ footer .fa{
+     color: #b20000;
+ }
+ footer a:hover{
+     color: #b20000;
+     text-decoration:wavy;
 
-    }
-    footer h3.title{
-        color: #f1f1f1;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    footer .col-sm-5 p,
-    footer .col-sm-5 p a{
-        padding-top: 30px;
-        font-size: 13px;
-        text-align: justify;
-        color: #f1f1f1;
-        text-decoration: none;
+ }
+ footer h3.title{
+     color: #f1f1f1;
+     font-weight: bold;
+     text-transform: uppercase;
+ }
+ footer .col-sm-5 p,
+ footer .col-sm-5 p a{
+     padding-top: 30px;
+     font-size: 13px;
+     text-align: justify;
+     color: #f1f1f1;
+     text-decoration: none;
 
-    }
-    
-    footer .col-sm-4 .row{
-        padding-top: 10px;
+ }
+ 
+ footer .col-sm-4 .row{
+     padding-top: 10px;
 
 
-    }
-    footer .col-sm-3 li{
-        list-style: square;
-        color: #b20000;
-    }
-    footer .col-sm-3 li a{
-        text-decoration: none;
-        color: #f1f1f1;
-    }
-    footer div.col-sm-4 div.row div.col-sm-4 img{
-        margin-bottom: 20px;
+ }
+ footer .col-sm-3 li{
+     list-style: square;
+     color: #b20000;
+ }
+ footer .col-sm-3 li a{
+     text-decoration: none;
+     color: #f1f1f1;
+ }
+ footer div.col-sm-4 div.row div.col-sm-4 img{
+     margin-bottom: 20px;
 
-    }
-    .text-center.foot{
-        background: #f1f1f1;
-        padding-top: 10px;
-        color: #b20000;
-        margin-bottom: 0;
-        padding-bottom: 10px;
-        font-size: 10px;
-    }
-    .fa.fa-arrow-up{
-        color: #f1f1f1;
-        font-size: 10px;
-    }
-    
+ }
+ .text-center.foot{
+     background: #f1f1f1;
+     padding-top: 10px;
+     color: #b20000;
+     margin-bottom: 0;
+     padding-bottom: 10px;
+     font-size: 10px;
+ }
+ .fa.fa-arrow-up{
+     color: #f1f1f1;
+     font-size: 10px;
+ }
+ 
 footer .image {
-  display: block;
-  width: 100%;
-  height: auto;
+display: block;
+width: 100%;
+height: 80px;
 }
 
 footer div.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80%;
-  width: 100%;
-  opacity: 0;
-  transition: .3s ease;
-  background-color: #b20000bb;
-  color: #eee;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 80%;
+width: 100%;
+opacity: 0;
+transition: .3s ease;
+background-color: #b20000bb;
+color: #eee;
 }
 footer div.overlay p{
-    padding-top: 0px;
+ padding-top: 0px;
 }
 footer div.container.folio:hover .overlay{
-  opacity: 1;
+opacity: 1;
 }
 
 footer a.icon .fa.fa-plus-circle{
-  color: #eee;
-  font-size: 15px;
-  position: absolute;
-  left: 50%;
-  font-weight: bold;
-  padding-bottom: 20px;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
+color: #eee;
+font-size: 15px;
+position: absolute;
+left: 50%;
+font-weight: bold;
+padding-bottom: 20px;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+text-align: center;
 }
-  footer div.container.folio {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+footer div.container.folio {
+position: relative;
+width: 100%;
+margin: 0;
+padding: 0;
 }
+.container.form{
+ padding: 30px 150px;  
+}
+.btn.btn-primary {
+           background: tomato;
+           border: none;
+           font-size: 11px;
+           letter-spacing: 3px;
+           padding: 12px 80px;
+           border-radius: 0;
+       }
+input.form-control{
+ border-radius:0;
+ height:40px;
+}
+ @media only screen and (max-width: 768px) {
 
-    @media only screen and (max-width: 768px) {
-    footer div.col-sm-4 div.row div.col-sm-4{
-        float: left;
-        width: 50%;
+ footer div.col-sm-4 div.row div.col-sm-4{
+     float: left;
+     width: 50%;
 
-    }
-    footer h3.title{
-        color: #f1f1f1;
-        font-weight: bold;
-        font-size: 15px;
-        text-transform: uppercase;
-    }
-    .text-center.foot p{
-        font-size: 8px;
-        padding: 15px;
-    }
+ }
+ footer h3.title{
+     color: #f1f1f1;
+     font-weight: bold;
+     font-size: 15px;
+     text-transform: uppercase;
+ }
+ .text-center.foot p{
+     font-size: 8px;
+     padding: 15px;
+ }
 footer div.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 90%;
-  width: 100%;
-  opacity: 0;
-  transition: .3s ease;
-  background-color: #b20000bb;
-  color: #eee;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 90%;
+width: 100%;
+opacity: 0;
+transition: .3s ease;
+background-color: #b20000bb;
+color: #eee;
 }
-    }
+ }
 </style>
 <footer>
     <div class="container">
@@ -167,14 +181,7 @@ footer div.overlay {
                 <a href="listings/{{$latest->id}}" title="{{$latest->title}}">
                 <div class="col-sm-4">
                     <div class="container folio">
-                    <img src="{{ URL::to('img/cover_images/listings/'.$latest->image1)}}" alt="listing image" class="img-responsive image">
-                    <div class="overlay">
-                        <p>
-                            <a href="#" class="icon" title="{{$latest->title}}">
-                            <i class="fa fa-plus-circle"></i>
-                            </a>
-                        </p>
-                        </div>
+                        <img src="{{ URL::to('img/cover_images/listings/'.$latest->image1)}}" alt="listing image" class="img-responsive image">
                     </div>
                 </div>
                 </a>
@@ -230,12 +237,12 @@ footer div.overlay {
             </script>
 </footer>
 <div class="bottom">
-    @include('cookieConsent::index')
+    @include('cookie-consent::index')
 </div>
 <div class="text-center foot">
     
         
-    <p class="text-center">&copy 2021 AMASLINK | All rights reserved | Designed by <a href="" style="color:#b2000095; font-weight:bold;">Gowwwide Tech</a> </p>
+    <p class="text-center">&copy {{ \Carbon\Carbon::now()->format('Y') }} AMASLINK | All rights reserved | Designed by <a href="" style="color:#b2000095; font-weight:bold;">Gowwwide Tech</a> </p>
     <a  style="float:left; text-decoration:none;background:#b20000; color:#f1f1f1; border-radius:15px;" class="btn btn-default" href="#myPage" onclick="topFunction()" id="myBtn">
         <span class="fa fa-arrow-up"></span> 
     </a>

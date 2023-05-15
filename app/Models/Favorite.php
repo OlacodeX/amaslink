@@ -18,9 +18,9 @@ class Favorite extends Model
       //timestamps
       public $timestamps = true;
       public function user(){
-          return $this->belongsTo('App\User');
+          return $this->belongsTo('App\Models\User');
       }
   public function bookmarks(){
-      return $this->hasMany('App\Listings');
+      return $this->hasMany('App\Models\Listings');
   }
 }

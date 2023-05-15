@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\ListingView;
+use App\Models\ListingView;
 
 class Listings extends Model
 {
@@ -14,7 +14,7 @@ class Listings extends Model
      //timestamps
      public $timestamps = true;
      public function user(){
-         return $this->belongsTo('App\User');
+         return $this->belongsTo('App\Models\User');
      }
 
      public function listingView()
@@ -26,16 +26,16 @@ class Listings extends Model
   
       public function bookmarks()
   {
-      return $this->hasMany('App\Favorite');
+      return $this->hasMany('App\Models\Favorite');
   }
   
   //bids
   public function bid(){
-    return $this->belongsTo('App\Bids');
+    return $this->belongsTo('App\Models\Bids');
 }  
   
 public function bids(){
-    return $this->hasMany('App\Bids');
+    return $this->hasMany('App\Models\Bids');
 }
       public function showPost()
   {

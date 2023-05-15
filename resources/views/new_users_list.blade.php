@@ -98,6 +98,7 @@ color: #b20000;
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left:250px;
 }
 @media only screen and (max-width: 768px) {
       .col-sm-3{
@@ -141,11 +142,16 @@ color: #b20000;
           background: transparent;
           margin-top: 0;
       }
+      #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        margin-left:20px;
+    }
 }
 </style>
 @section('content')
 @include('inc.navadmin')
-<div class="" id="main" style="margin-left:250px">
+<div class="" id="main">
 
 <div class="w3-container">
  
@@ -157,27 +163,39 @@ color: #b20000;
     @include('inc.messages')
 <h3 class="text-justify title">Users <span>List({{App\Models\User::count()}})</span></h3>
 @if (count($new_users) > 0)
-<table class="table table-stripped table-condensed table-responsive">
+<table class="table table-stripped table-condensed table-responsive" style="width: 70%">
     <tr>
         <th>Registered On</th>
         <th>Username</th>
-        <th>Phone Number</th>
-        <th>Email</th>
+        <th>Contact Details</th>
         <th>Picture</th>
+        <th>Action</th>
     </tr>
-    @foreach ($new_users as $new_user)
+    @foreach ($new_users as $user)
     <tr>
-    <td>{{$new_user->created_at}}</td>
-    <td>{{$new_user->u_name}}</td>
-    <td><a href="tel:{{$new_user->phone}}">{{$new_user->phone}}</a></td>
-    <td><a href="mailto:{{$new_user->email}}">{{$new_user->email}}</a></td>
-    <td><img src="img/cover_images/{{$new_user->pp}}" alt=""></td>
+    <td class="col-md-2">{{Carbon::parse($user->created_at)->format('d/m/Y')}}</td>
+    <td class="col-md-2">{{$user->u_name}}</td>
+    <td class="col-md-2"><a href="tel:{{$user->phone}}"><i class="fa fa-phone"></i></a><a href="mailto:{{$user->email}}"><i class="fa fa-envelope"></i></a></td>
+    <td class="col-md-2"><img src="img/cover_images/{{$user->pp}}" alt=""></td>
+    <td class="col-md-4">
+        {!!Form::open(['action' => ['SuperadminController@delete_user'], 'method' => 'POST', 'class' => 'pull-left', 'style' => 'margin-right:20px;'])!!}
+        {{Form::hidden('id', $user->id)}} 
+        {{Form::submit('Delete User', ['class' => 'btn btn-danger btn-sm'])}}
+        {!!Form::close()!!}
+    </td>
     </tr>
     @endforeach
 </table>
-<div style="text-align:right;">
+<div style="text-align:left;">
         <!-----The pagination link----->
-        {{$new_users->links()}}
+    {{-- {{$new_users->links()}} --}}
+    @if($new_users->currentPage() > 1)
+        <a href="{{ $new_users->previousPageUrl() }}" class="btn btn-primary pagination">Previous</a>
+    @endif
+
+    @if($new_users->hasMorePages())
+        <a href="{{ $new_users->nextPageUrl() }}" class="btn btn-primary pagination">Next</a>
+    @endif
 </div>
 @else
 <p>No Record Found</p>    

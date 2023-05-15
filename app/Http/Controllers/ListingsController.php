@@ -10,7 +10,7 @@ use App\Models\Listings;
 use App\Models\Favorite;
 use App\Models\User;
 use App\Models\Bids;
-use App\Models\Mail\ListingNotificationMail;
+use App\Mail\ListingNotificationMail;
 use Illuminate\Support\Facades\Mail;
 use Auth;
 use Image;
@@ -62,12 +62,12 @@ class ListingsController extends Controller
     {
         
        $this->validate($request, [
-        'title' => 'required',
+        'title' => 'required|string|max:50',
         'category' => 'required',
-        'email' => 'required',
+        'email' => 'required|email',
         'country' => 'required',
         'address1' => 'required',
-        'phone' => 'required',
+        'phone' => 'required|numeric',
         'description' => 'required|max:5000',
          //image means it must be in image format|nullable means the field is optional, then max size is 1999
          'image1' => 'image|nullable|max:1999',
@@ -81,10 +81,10 @@ class ListingsController extends Controller
         'payment_method5' => 'nullable',
         'payment_method6' => 'nullable',
         'price' => 'nullable',
-        'condition' => 'nullable',
-        'purpose' => 'nullable',
-        'p_type' => 'nullable',
-        'j_type' => 'nullable',
+        'condition' => 'nullable|string',
+        'purpose' => 'nullable|string',
+        'p_type' => 'nullable|string',
+        'j_type' => 'nullable|string',
         'bedrooms' => 'nullable',
         'bathrooms' => 'nullable',
         'expire' => 'nullable',
@@ -98,7 +98,7 @@ class ListingsController extends Controller
         'age' => 'nullable',
         'video' => 'nullable',
         'address2' => 'nullable',
-        'info' => 'nullable'
+        'info' => 'nullable|string'
          ]);
 
 
@@ -432,12 +432,12 @@ class ListingsController extends Controller
     {
         
        $this->validate($request, [
-        'title' => 'required',
+        'title' => 'required|string|max:50',
         'category' => 'required',
-        'email' => 'required',
+        'email' => 'required|email',
         'country' => 'required',
         'address1' => 'required',
-        'phone' => 'required',
+        'phone' => 'required|numeric',
         'payment_id' => 'required',
         'description' => 'required|max:5000',
          //image means it must be in image format|nullable means the field is optional, then max size is 1999
@@ -452,15 +452,15 @@ class ListingsController extends Controller
         'payment_method5' => 'nullable',
         'payment_method6' => 'nullable',
         'price' => 'required',
-        'condition' => 'nullable',
-        'purpose' => 'nullable',
-        'p_type' => 'nullable',
+        'condition' => 'nullable|string',
+        'purpose' => 'nullable|string',
+        'p_type' => 'nullable|string',
         'bedrooms' => 'nullable',
         'bathrooms' => 'nullable',
         'expire' => 'nullable',
         'area' => 'nullable',
         'p_available' => 'nullable',
-        'j_type' => 'nullable',
+        'j_type' => 'nullable|string',
         'startd' => 'nullable',
         'endd' => 'nullable',
         'starttime' => 'nullable',

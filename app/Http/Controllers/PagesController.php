@@ -133,20 +133,16 @@ class PagesController extends Controller
     }
     
     public function favorites(){
-        $results = Listings::orderBy('created_at', 'desc')->where('type','paid')->where('status','approved')->where('priority','No')->get();
+      
         $latests = Listings::orderBy('created_at', 'desc')->where('type','paid')->where('status','approved')->paginate(6);
-        $favorites = Favorite::orderBy('created_at', 'desc')->where('user_id',auth()->user()->id)->paginate(4);
+        $favorites = Favorite::orderBy('created_at', 'desc')->where('user_id',auth()->user()->id)->paginate(12);
         $posts = Posts::orderBy('created_at', 'desc')->paginate(2);
-        $listings = Listings::orderBy('created_at', 'desc')->where('status','approved')->get();
         $data = array(
-          'latests' => $latests,
-          'results' => $results,
           'favorites' => $favorites,
-          'listings' => $listings,
+          'latests' => $latests,
           'posts' => $posts
-      );
-      
-      
+        );
+        
         return view("pages.favorite", $data);
     }
     public function listinginner(){

@@ -706,7 +706,7 @@
                   {{Form::textarea('message', '', ['class' => 'form-control'])}}
               </div>
               @php
-              use App\User;
+              use App\Models\User;
               $listing_user= User::find($listing->user_id);
               @endphp
               {{Form::hidden('receiver_id', $listing->user_id)}}
@@ -758,7 +758,7 @@
                  {{Form::submit('MINERAL/CRUDE OIL', ['class' => 'btn btn-default', 'style' => 'text-transform:uppercase;'])}}
                 
                
-                ({{App\Listings::where('category', 'MINERAL, CRUDE OIL')->where('status', 'approved')->count()}})
+                ({{App\Models\Listings::where('category', 'MINERAL, CRUDE OIL')->where('status', 'approved')->count()}})
            
             {!! Form::close() !!}
             {!! Form::open(['action' => 'PagesController@category', 'method' => 'GET', 'id' => 'my_form_4']) /** The action should be the block of code in the store function in PostsController
@@ -807,7 +807,7 @@
         
     </div>
 @php
-use App\Listings;
+use App\Models\Listings;
 $u_listings = Listings::orderBy('updated_at', 'desc')->where('user_id',$listing->user_id)/**->where('id',$listing->id)**/->where('status','approved')->paginate(4);
 @endphp
 <div class="container">
@@ -824,7 +824,7 @@ $u_listings as $u_listing
 <div class="panel-default">
     <div class="panel-body">
         <div class="bottom-left">
-            <i class="fa fa-eye"></i><span>{{App\ListingView::where('listings_id', $u_listing->id)->count() }}</span>
+            <i class="fa fa-eye"></i><span>{{App\Models\ListingView::where('listings_id', $u_listing->id)->count() }}</span>
         </div>
         <div class="bottom-right">
             {{ Form::open(array('action' => 'ListingsController@bookmark')) }}  
@@ -835,7 +835,7 @@ $u_listings as $u_listing
             @guest
             <button type="submit" onclick="myFunction(this)" class="fa fa-heart-o" title="Bookmark"></button>
             @else 
-            @if(empty(App\Favorite::where('user_id', '=',  auth()->user()->id)->where('listing_id', '=',  $u_listing->id)->first()))
+            @if(empty(App\Models\Favorite::where('user_id', '=',  auth()->user()->id)->where('listing_id', '=',  $u_listing->id)->first()))
              
             <button type="submit" onclick="myFunction(this)" class="fa fa-heart-o" title="Bookmark"></button>
             @else
@@ -867,13 +867,6 @@ $u_listings as $u_listing
         </p>
         
     </div>
-    <div class="overlay">
-        <p>
-            <a href="../listings/{{$u_listing->id}}" class="icon" title="">
-            <i class="fa fa-plus-circle"></i>
-            </a>
-        </p>
-        </div>
         @if ( $u_listing->type == 'paid')
         <div class="top-left">
             <span class="btn btn-primary">FEATURED</span>

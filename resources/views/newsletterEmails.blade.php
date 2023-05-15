@@ -98,6 +98,7 @@ color: #b20000;
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left:250px;
 }
 @media only screen and (max-width: 768px) {
       .col-sm-3{
@@ -141,32 +142,44 @@ color: #b20000;
           background: transparent;
           margin-top: 0;
       }
+      #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        margin-left:20px;
+    }
 }
 </style>
 @section('content')
 @include('inc.navadmin')
-<div class="" id="main" style="margin-left:250px">
+<div class="" id="main">
 
 <div class="w3-container"> 
 <h3 class="text-justify title">Subscribed Users <span>List({{App\Models\Newsletter::count()}})</span></h3>
 @if (count($users) > 0)
-<table class="table table-stripped table-condensed table-responsive">
+<table class="table table-stripped table-condensed table-responsive" style="width: 70%">
     <tr>
         <th>Subscribed On</th>
-        <th>Name</th>
+        <th>Username</th>
         <th>Email</th>
     </tr>
     @foreach ($users as $user)
     <tr>
-    <td>{{$user->created_at}}</td>
-    <td>{{$user->name}}</td>
-    <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
+    <td class="col-md-2">{{Carbon::parse($user->created_at)->format('d/m/Y')}}</td>
+    <td class="col-md-2">{{$user->name}}</td>
+    <td class="col-md-2"><a href="mailto:{{$user->email}}"><i class="fa fa-envelope"></i></a></td>
     </tr>
     @endforeach
 </table>
-<div style="text-align:right;">
+<div style="text-align:left;">
         <!-----The pagination link----->
-        {{$users->links()}}
+    {{-- {{$users->links()}} --}}
+    @if($users->currentPage() > 1)
+        <a href="{{ $users->previousPageUrl() }}" class="btn btn-primary pagination">Previous</a>
+    @endif
+
+    @if($users->hasMorePages())
+        <a href="{{ $users->nextPageUrl() }}" class="btn btn-primary pagination">Next</a>
+    @endif
 </div>
 @else
 <p>No Record Found</p>    

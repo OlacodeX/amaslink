@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Str;
+use Auth;
+use App\Models\User;
 use App\Models\Forum;
+use App\Models\Likes;
 use App\Models\Posts;
 use App\Models\Listings;
-use App\Models\ForumComments;
-use App\Models\Likes;
-use App\Models\User;
-use Auth;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\ForumComments;
 
 class ForumController extends Controller
 {
