@@ -27,7 +27,7 @@
             {{ Form::open(['action' => ['ListingsController@show_f'], 'method' => 'POST', 'id' => 'my_form_9']) }}  
             {{Form::hidden('id', $favorite->listing_id)}}
              {{ Form::close() }}---->
-        <div class="col-sm-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="container folio">
             <div class="panel-default">
                 <div class="panel-body">

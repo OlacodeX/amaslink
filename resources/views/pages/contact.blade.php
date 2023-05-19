@@ -48,7 +48,7 @@
                 </div>
               <h3 class="text-justify connect">Connect With Us On Social Media</h3>
               <p class="social">
-                    <a href="https://www.facebook.com/"> <i class="fa fa-facebook" style="color:  rgb(1, 14, 128); font-weight:300;padding-right:5px;padding-bottom:15px;"></i></a> 
+                    <a href="https://www.facebook.com/amaslinkclassified"> <i class="fa fa-facebook" style="color:  rgb(1, 14, 128); font-weight:300;padding-right:5px;padding-bottom:15px;"></i></a> 
                     <a href="https://www.twitter.com/Amaslink1"><i class="fa fa-twitter" style="color:  rgb(27, 188, 228); font-weight:300;padding-right:5px;padding-bottom:15px;"></i></a> 
                     <a href="https://www.youtube.com/channel/UCtr6z1xfyPLNSzzYUwMZCvQ" style="color:#aa1313;"><i class="fa fa-youtube-play"></i></a>
                     <a href="https://www.instagram.com/amaslink3"><i class="fa fa-instagram" style="color:  rgb(212, 12, 12); font-weight:300;padding-right:5px;"></i></a> 

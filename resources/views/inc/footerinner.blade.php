@@ -150,7 +150,11 @@ transition: .3s ease;
 background-color: #b20000bb;
 color: #eee;
 }
- }
+
+.container.form{
+    padding: 30px 10px;  
+}
+}
 </style>
 <footer>
     <div class="container">

@@ -17,7 +17,7 @@
                 $listings_all as $listing
                 )
         <a href="auctions/{{$listing->id}}" title="">
-        <div class="col-sm-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="container folio">
             <div class="panel-default">
                 <div class="panel-body">
@@ -47,7 +47,7 @@
                     <img src="{{ URL::to('img/cover_images/listings/'.$listing->image1)}}" class="img-responsive" alt="">
                 </div>
                 <div class="panel-footer">
-                    <small class="text-justify"><i class="fa fa-cubes"></i>{!!Str::words($listing->title,6)!!}</small>
+                    <small class="text-justify"><i class="fa fa-cubes"></i>{!!Str::words($listing->title,5)!!}</small>
                     <hr>
                     <p class="text-justify"><i class="fa fa-map-marker"></i>{{$listing->country}} | <span>$</span>{{$listing->price}}</p>
                     

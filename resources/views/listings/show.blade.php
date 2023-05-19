@@ -424,46 +424,52 @@ div.overlay {
   background-color: #b20000bb;
   color: #eee;
 }
-            div.row.ads div.panel-default div.panel-body{
-                margin-bottom: 0;
-                height: 200px;
-                width: 160px;
-                padding: 0;
-            }
-            .panel-default .panel-footer{
-                margin-bottom: 0;
-                width: 160px;
-                padding-bottom: 50px;
-            }
-            .panel-default .panel-footer .fa{
-                font-weight: bold;
-                color: #B20000;
 
-            }
-            .panel-default .panel-body img{
-                margin-bottom: 0;
-                height:200px;
-                width: 200px;
-            }
+div.row.ads div.panel-default div.panel-body{
+  margin-bottom: 0;
+  height: 370px !important;
+  width: 370px !important;
+  padding: 0;
+}
+div.row.ads div.panel-default{
+    width: 370px !important;
+    margin-bottom: 20px !important;
+    box-shadow: none !important;
+}
+.panel-default .panel-footer{
+    margin-bottom: 0;
+    width: 370px !important;
+    padding-bottom: 95px;
+}
+.panel-default .panel-footer .fa{
+    font-weight: bold;
+    color: #B20000;
 
-    div.col-sm-9{
-        padding: auto;
-        margin: auto;
-        box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.2);
-    }
+}
+.panel-default .panel-body img{
+    margin-bottom: 0;
+    height:250px !important;
+    width: 370px !important;
+}
 
-    div.container-fluid.listing{
-        padding: auto;
-        width: 100%;
-    }
-    }
+div.col-sm-9{
+    padding: auto;
+    margin: auto;
+    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+div.container-fluid.listing{
+    padding: auto;
+    width: 100%;
+}
+}
 
 </style>
 @section('content')
 @include('inc.navotherr')
 <div class="row">
     <div class="container-fluid listing">
-        <div class="col-sm-9">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
           @include('inc.messages')
             <div class="col-sm-4 bb">
               @if ($listing->type == 'paid')
@@ -750,7 +756,7 @@ div.overlay {
             <a href="{{ URL::previous() }}" class="btn btn-success">Go Back</a>
 
     </div>
-        <div class="col-sm-3">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             
             <h3 class="title">Categories</h3>
             <hr class="hrr">
@@ -828,7 +834,7 @@ $u_listings as $u_listing
 )
 
 <a href="../listings/{{$u_listing->id}}" title="">
-<div class="col-sm-3">
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 <div class="container folio">
 <div class="panel-default">
     <div class="panel-body">

@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use PragmaRX\Countries\Package\Countries;
-use App\Models\Payment;
-use Illuminate\Http\Request;
-use App\Models\ListingView;
-use App\Models\Posts;
-use App\Models\Listings;
-use App\Models\Favorite;
-use App\Models\User;
-use App\Models\Bids;
-use App\Mail\ListingNotificationMail;
-use Illuminate\Support\Facades\Mail;
 use Auth;
-use Image;
+use App\Models\Bids;
+use App\Models\User;
+use App\Models\Posts;
+use App\Models\Payment;
+use App\Models\Favorite;
+use App\Models\Listings;
+use App\Models\ListingView;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ListingNotificationMail;
+use Intervention\Image\Facades\Image;
+use PragmaRX\Countries\Package\Countries;
 
 class ListingsController extends Controller
 {

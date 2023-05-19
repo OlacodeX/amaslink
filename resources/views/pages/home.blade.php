@@ -508,7 +508,7 @@
                     $boosted_paid as $boosted_paid
                     )
                 <a href="listings/{{$boosted_paid->id}}" title="">
-                <div class="col-sm-3">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="container folio">
                     <div class="panel-default">
                         <div class="panel-body">
@@ -569,7 +569,7 @@
                     $boosted_free as $boosted_free
                     )
                 <a href="listings/{{$boosted_free->id}}" title="">
-                <div class="col-sm-3">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="container folio">
                     <div class="panel-default">
                         <div class="panel-body">
