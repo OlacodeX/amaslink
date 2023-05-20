@@ -17,7 +17,7 @@
                 $listings_all as $listing
                 )
             <a href="listings/{{$listing->id}}" title="">
-            <div class="col-sm-3">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="container folio">
                 <div class="panel-default">
                     <div class="panel-body">
@@ -51,7 +51,7 @@
                         @endif
                     </div>
                     <div class="panel-footer">
-                        <small class="text-justify"><i class="fa fa-cubes"></i>{!!Str::words($listing->title,8)!!}</small>
+                        <small class="text-justify"><i class="fa fa-cubes"></i>{!!Str::words($listing->title,5)!!}</small>
                         <hr>
                         <p class="text-justify">
                             @if (!empty($listing->country))

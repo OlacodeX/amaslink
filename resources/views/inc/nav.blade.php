@@ -432,7 +432,7 @@ div.collapse.navbar-collapse{
       <a href="https://api.whatsapp.com/send?phone=479471632" style="color:#f1f1f1;"><i class="fa fa-whatsapp" style="font-weight:300;padding-right:5px;"></i></a> 
       <a href="https://www.instagram.com/amaslink3" style="color:#f1f1f1;"><i class="fa fa-instagram"></i></a>
       <a href="https://www.youtube.com/channel/UCtr6z1xfyPLNSzzYUwMZCvQ" style="color:#f1f1f1;"><i class="fa fa-youtube-play"></i></a>
-      <a href="https://www.facebook.com/" style="color:#f1f1f1;"><i class="fa fa-facebook"></i></a>
+      <a href="https://www.facebook.com/amaslinkclassifiedamaslinkclassified" style="color:#f1f1f1;"><i class="fa fa-facebook"></i></a>
 <span class="float">
 <a target="blank"style="text-decoration:none; color:#f1f1f1;" href="mailto:amaslink@gmail.com?Subject=Hello Amaslink, I Have an Enquiry"><i class="fa fa-envelope-o" style="color:#f1f1f1;"></i>
 amaslink@gmail.com</a>
@@ -470,7 +470,7 @@ amaslink@gmail.com</a>
                 <a href="https://api.whatsapp.com/send?phone=479471632" style="color:#cc2e2e;"><i class="fa fa-whatsapp" style="font-weight:300;padding-right:5px;"></i></a> 
                 <a href="https://www.instagram.com/amaslink3" style="color:#d33131;"><i class="fa fa-instagram"></i></a>
                 <a href="https://www.youtube.com/channel/UCtr6z1xfyPLNSzzYUwMZCvQ" style="color:#aa1313;"><i class="fa fa-youtube-play"></i></a>
-                <a href="https://www.facebook.com/" style="color:#9b1f1f;"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com/amaslinkclassified" style="color:#9b1f1f;"><i class="fa fa-facebook"></i></a>
 
               </p>
         </ul>

@@ -301,25 +301,7 @@
         .row.ads .container{
                     width: 100%;
                 }
-            .row.ads .panel-default .panel-footer p{
-                color:#171919d3;
-                font-size: 10px;
-                padding-top: 0px;
-                padding-bottom: 10px;
-                font-weight: bold;
-            }
-            .row.ads .panel-default .panel-footer p span{
-                color:#171919d3;
-                font-size: 8px;
-                font-weight: normal;
-            }
-            .row.ads .panel-default .panel-footer small{
-                color:#171919d3;
-                font-size: 8px;
-                font-weight: normal;
-                padding-bottom: 0;
-                margin-bottom: 0;
-            }
+           
     div.overlay {
       position: absolute;
       top: 0;
@@ -333,28 +315,31 @@
       background-color: #b20000bb;
       color: #eee;
     }
-                div.row.ads div.panel-default div.panel-body{
-                    margin-bottom: 0;
-                    height: 200px;
-                    width: 160px;
-                    padding: 0;
-                }
-                .panel-default .panel-footer{
-                    margin-bottom: 0;
-                    width: 160px;
-                    padding-bottom: 50px;
-                }
-                .panel-default .panel-footer .fa{
-                    font-weight: bold;
-                    color: #B20000;
-    
-                }
-                .panel-default .panel-body img{
-                    margin-bottom: 0;
-                    height:200px;
-                    width: 200px;
-                }
-    
+    div.row.ads div.panel-default div.panel-body{
+            margin-bottom: 0;
+            height: 350px;
+            width: 350px;
+            padding: 0;
+        }
+        div.row.ads div.panel-default{
+            width: 350px;
+            margin-bottom: 20px;
+            box-shadow: 10px 6px 6px 0 rgba(0, 0, 0, 0.2);
+        }
+        .panel-default .panel-footer{
+            margin-bottom: 0;
+            width: 350px;
+            padding-bottom: 95px;
+        }
+        .panel-default .panel-footer .fa{
+            font-weight: bold;
+            color: #B20000;
+
+        }
+        .panel-default .panel-body img{
+            margin-bottom: 0;
+            height:350px;
+            width: 350px;
         }
     
           
