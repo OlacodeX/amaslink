@@ -126,11 +126,9 @@ Route::get('paymenterror', '\App\Http\Controllers\PaymentController@payment_erro
 Route::post('auction', '\App\Http\Controllers\PaymentController@auction');
 Route::get('paymentauctionsuccess', '\App\Http\Controllers\PaymentController@payment_auction_success');
 Route::get('paymentauctionerror', '\App\Http\Controllers\PaymentController@payment_auction_error');
-Route::get('success', '\App\Http\Controllers\ListingsController@success');
-Route::get('error', '\App\Http\Controllers\ListingsController@error');
-Route::post('charge_free', '\App\Http\Controllers\ListingsController@charge');
-Route::get('payment_success_free', '\App\Http\Controllers\ListingsController@payment_success_free');
-Route::get('payment_error_free', '\App\Http\Controllers\ListingsController@payment_error_free');
+Route::post('charge_free', '\App\Http\Controllers\PaymentController@charge_free');
+Route::get('paymentsuccessfree', '\App\Http\Controllers\PaymentController@payment_success_free');
+Route::get('paymenterrorfree', '\App\Http\Controllers\PaymentController@payment_error_free');
 Route::any('delete_user', '\App\Http\Controllers\SuperadminController@delete_user');
 
 

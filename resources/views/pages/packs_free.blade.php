@@ -200,7 +200,7 @@ p.top{
                         </ul>
                     <hr class="hrr">
                     <p class="text-center">
-                        {!! Form::open(['action' => 'ListingsController@charge', 'method' => 'POST']) /** The action should be the block of code in the store function in PostsController
+                        {!! Form::open(['action' => 'PaymentController@charge_free', 'method' => 'POST']) /** The action should be the block of code in the store function in PostsController
                         **/ !!}
                          {{Form::hidden('amount', '3')}}
                          {{Form::submit('Subscribe To Boosted Package', ['class' => 'btn btn-success', 'name' => 'submit','style' => 'text-transform:uppercase;'])}}

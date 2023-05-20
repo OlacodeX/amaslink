@@ -34,6 +34,10 @@ return [
         'client' => env('PAYPAL_CLIENT'),
         'secret' => env('PAYPAL_SECRET'),
         'mode' => env('PAYPAL_MODE'),
+        'currency' => env('PAYPAL_CURRENCY'),
+        'client_prod' => env('PAYPAL_CLIENT_PROD'),
+        'secret_prod' => env('PAYPAL_SECRET_PROD'),
+        'mode_prod' => env('PAYPAL_MODE_PROD'),
     ],
 
 ];
