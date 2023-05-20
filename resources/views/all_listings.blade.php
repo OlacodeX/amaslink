@@ -172,27 +172,29 @@ color: #b20000;
     @foreach ($listings as $listing)
     @if ($listing->status !== 'sold/expired')
     <tr>
-    <td>{{$listing->title}}</td>
+    <td class="col-md-2">{{$listing->title}}</td>
     @if ($listing->type == 'free' && $listing->priority == 'No')
-    <td><img src="img/cover_images/listings/{{$listing->image1}}" alt=""></td>
+    <td class="col-md-2"><img src="img/cover_images/listings/{{$listing->image1}}" alt=""></td>
 
     @endif
     @if ($listing->type == 'free' && $listing->priority == 'Yes')
-    <td>
+    <td class="col-md-3">
     <img src="img/cover_images/listings/{{$listing->image1}}" alt="">
     <img src="img/cover_images/listings/{{$listing->image2}}" alt="">
     </td>
     @endif
    @if ($listing->type == 'paid')
-        <td>
+        <td class="col-md-3">
             <img src="img/cover_images/listings/{{$listing->image1}}" alt=""><img src="img/cover_images/listings/{{$listing->image2}}" alt="">
             <img src="img/cover_images/listings/{{$listing->image3}}" alt=""><img src="img/cover_images/listings/{{$listing->image4}}" alt=""><img src="img/cover_images/listings/{{$listing->image5}}" alt="">
     
         </td>
 
     @endif
-    <td>{{$listing->status}}</td>
-    <td>
+    <td class="col-md-2">{{$listing->status}}</td>
+    @if ($listing->status != 'approved')
+    
+     <td class="col-md-2">
         {!!Form::open(['action' => ['SuperadminController@update'], 'method' => 'POST', 'class' => 'pull-left', 'style' => 'margin-right:20px;'])!!}
         {{Form::hidden('id', $listing->id)}}
         {{Form::hidden('title', $listing->title)}}
@@ -201,7 +203,8 @@ color: #b20000;
         {!!Form::close()!!}
         
     </td>
-    <td>
+    @endif
+    <td class="col-md-2">
             {!!Form::open(['action' => ['ListingsController@destroy', $listing->id], 'method' => 'POST', 'class' => 'pull-left', 'style' => 'margin-right:20px;'])!!}
 
             {{Form::hidden('_method', 'DELETE')}}
