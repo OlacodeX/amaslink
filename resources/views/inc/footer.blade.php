@@ -121,7 +121,7 @@ input.form-control{
     border-radius:0;
     height:40px;
 }
-    @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
 
     footer div.col-sm-4 div.row div.col-sm-4{
         float: left;
@@ -151,7 +151,11 @@ footer div.overlay {
   background-color: #b20000bb;
   color: #eee;
 }
-    }
+
+.container.form{
+    padding: 30px 10px;  
+}
+}
 </style>
     <div class="container-fluid text-center">
         <div class="container form">

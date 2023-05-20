@@ -201,7 +201,7 @@ div.col-sm-12 img.img-responsive{
                                         <div class="card-body">
                                           <h5 class="card-title">{{$user->name}} {{ $user->l_name}}</h5>
                                          
-                                        <a class="btn btn-info" href="https://www.facebook.com/{{$user->fb}}"> <i class="fa fa-facebook"></i></a> 
+                                        <a class="btn btn-info" href="https://www.facebook.com/amaslinkclassified{{$user->fb}}"> <i class="fa fa-facebook"></i></a> 
                                         <a class="btn btn-info" href="https://twitter.com/{{$user->twitter}}"><i class="fa fa-twitter"></i></a> 
                                         <a class="btn btn-info" href=""><i class="fa fa-instagram"></i></a> 
                                         <a class="btn btn-info" href="https://api.whatsapp.com/send?phone={{$user->phone}}"><i class="fa fa-whatsapp"></i></a> 
