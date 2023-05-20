@@ -8,6 +8,7 @@ use App\Models\Posts;
 use App\Models\Payment;
 use App\Models\Favorite;
 use App\Models\Listings;
+use Illuminate\Support\Facades\File;
 use App\Models\ListingView;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -117,7 +118,10 @@ class ListingsController extends Controller
             $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
             $watermark = Image::make('img/AMAS.png');
-            $destinationPath = ('img/cover_images/listings');
+            $destinationPath = public_path('img/cover_images/listings');
+            if (!File::isDirectory($destinationPath)) {
+                File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+            }
             // File name to store
             $fileNameTostoreone = $img;
 
@@ -492,7 +496,11 @@ class ListingsController extends Controller
             $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
             $watermark = Image::make('img/AMAS.png');
-            $destinationPath = ('img/cover_images/listings');
+            
+            $destinationPath = public_path('img/cover_images/listings');
+            if (!File::isDirectory($destinationPath)) {
+                File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+            }
             // File name to store
             $fileNameTostoreone = $img;
 
@@ -524,7 +532,10 @@ class ListingsController extends Controller
            $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
            $watermark = Image::make('img/AMAS.png');
-           $destinationPath = ('img/cover_images/listings');
+           $destinationPath = public_path('img/cover_images/listings');
+           if (!File::isDirectory($destinationPath)) {
+               File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+           }
            // File name to store
            $fileNameTostoretwo = $img;
 
@@ -555,7 +566,10 @@ class ListingsController extends Controller
           $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
           $watermark = Image::make('img/AMAS.png');
-          $destinationPath = ('img/cover_images/listings');
+          $destinationPath = public_path('img/cover_images/listings');
+          if (!File::isDirectory($destinationPath)) {
+              File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+          }
           // File name to store
           $fileNameTostorethree = $img;
 
@@ -586,7 +600,10 @@ class ListingsController extends Controller
          $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
          $watermark = Image::make('img/AMAS.png');
-         $destinationPath = ('img/cover_images/listings');
+         $destinationPath = public_path('img/cover_images/listings');
+         if (!File::isDirectory($destinationPath)) {
+             File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+         }
          // File name to store
          $fileNameTostorefour = $img;
 
@@ -617,7 +634,10 @@ class ListingsController extends Controller
         $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
         $watermark = Image::make('img/AMAS.png');
-        $destinationPath = ('img/cover_images/listings');
+        $destinationPath = public_path('img/cover_images/listings');
+        if (!File::isDirectory($destinationPath)) {
+            File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+        }
         // File name to store
         $fileNameTostorefive = $img;
 
@@ -892,7 +912,10 @@ class ListingsController extends Controller
             $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
             $watermark = Image::make('img/AMAS.png');
-            $destinationPath = ('img/cover_images/listings');
+            $destinationPath = public_path('img/cover_images/listings');
+            if (!File::isDirectory($destinationPath)) {
+                File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+            }
             // File name to store
             $fileNameTostoreone = $img;
 
@@ -924,7 +947,10 @@ class ListingsController extends Controller
            $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
            $watermark = Image::make('img/AMAS.png');
-           $destinationPath = ('img/cover_images/listings');
+           $destinationPath = public_path('img/cover_images/listings');
+           if (!File::isDirectory($destinationPath)) {
+               File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+           }
            // File name to store
            $fileNameTostoretwo = $img;
 
@@ -955,7 +981,10 @@ class ListingsController extends Controller
           $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
           $watermark = Image::make('img/AMAS.png');
-          $destinationPath = ('img/cover_images/listings');
+          $destinationPath = public_path('img/cover_images/listings');
+          if (!File::isDirectory($destinationPath)) {
+              File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+          }
           // File name to store
           $fileNameTostorethree = $img;
 
@@ -986,7 +1015,10 @@ class ListingsController extends Controller
          $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
          $watermark = Image::make('img/AMAS.png');
-         $destinationPath = ('img/cover_images/listings');
+         $destinationPath = public_path('img/cover_images/listings');
+         if (!File::isDirectory($destinationPath)) {
+             File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+         }
          // File name to store
          $fileNameTostorefour = $img;
 
@@ -1017,7 +1049,10 @@ class ListingsController extends Controller
         $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
         $watermark = Image::make('img/AMAS.png');
-        $destinationPath = ('img/cover_images/listings');
+        $destinationPath = public_path('img/cover_images/listings');
+        if (!File::isDirectory($destinationPath)) {
+            File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+        }
         // File name to store
         $fileNameTostorefive = $img;
 
@@ -1397,7 +1432,10 @@ class ListingsController extends Controller
             $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
             $watermark = Image::make('img/AMAS.png');
-            $destinationPath = ('img/cover_images/listings');
+            $destinationPath = public_path('img/cover_images/listings');
+            if (!File::isDirectory($destinationPath)) {
+                File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+            }
             // File name to store
             $fileNameTostoreone = $img;
 
@@ -1429,7 +1467,10 @@ class ListingsController extends Controller
            $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
            $watermark = Image::make('img/AMAS.png');
-           $destinationPath = ('img/cover_images/listings');
+           $destinationPath = public_path('img/cover_images/listings');
+           if (!File::isDirectory($destinationPath)) {
+               File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+           }
            // File name to store
            $fileNameTostoretwo = $img;
 
@@ -1881,7 +1922,10 @@ class ListingsController extends Controller
             $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
             $watermark = Image::make('img/AMAS.png');
-            $destinationPath = ('img/cover_images/listings');
+            $destinationPath = public_path('img/cover_images/listings');
+            if (!File::isDirectory($destinationPath)) {
+                File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+            }
             // File name to store
             $fileNameTostoreone = $img;
 
@@ -1913,7 +1957,10 @@ class ListingsController extends Controller
            $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
            $watermark = Image::make('img/AMAS.png');
-           $destinationPath = ('img/cover_images/listings');
+           $destinationPath = public_path('img/cover_images/listings');
+           if (!File::isDirectory($destinationPath)) {
+               File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+           }
            // File name to store
            $fileNameTostoretwo = $img;
 
@@ -1944,7 +1991,10 @@ class ListingsController extends Controller
           $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
           $watermark = Image::make('img/AMAS.png');
-          $destinationPath = ('img/cover_images/listings');
+          $destinationPath = public_path('img/cover_images/listings');
+          if (!File::isDirectory($destinationPath)) {
+              File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+          }
           // File name to store
           $fileNameTostorethree = $img;
 
@@ -1975,7 +2025,10 @@ class ListingsController extends Controller
          $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
          $watermark = Image::make('img/AMAS.png');
-         $destinationPath = ('img/cover_images/listings');
+         $destinationPath = public_path('img/cover_images/listings');
+         if (!File::isDirectory($destinationPath)) {
+             File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+         }
          // File name to store
          $fileNameTostorefour = $img;
 
@@ -2006,7 +2059,10 @@ class ListingsController extends Controller
         $img = $filename.'_'.time().'.'.$image->getClientOriginalExtension();
 
         $watermark = Image::make('img/AMAS.png');
-        $destinationPath = ('img/cover_images/listings');
+        $destinationPath = public_path('img/cover_images/listings');
+        if (!File::isDirectory($destinationPath)) {
+            File::makeDirectory(public_path('img/cover_images/listings/'), 0777, true, true);
+        }
         // File name to store
         $fileNameTostorefive = $img;
 
