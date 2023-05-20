@@ -10,7 +10,11 @@ use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
-    //
+    // public function __construct()
+    // {
+    //     $this->middleware('guest', ['except' => ['favorites']]);
+        
+    // } 
     public function index(){
       
         $boosted_paid = Listings::where([
